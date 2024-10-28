@@ -1,0 +1,16 @@
+# Write a query that will display the results below (Note: some columns might be
+# renamed but use the column names above). It should only show 2020 data and order
+# by driver points.
+
+SELECT cqt.name as location, grid, position, fastest_lap, points,
+CONCAT(dr.forename, ' ', dr.surname) as driver_name,
+rcs.name as race_name, time, rcs.year, ct.name as team_name, rcs.date
+FROM results AS rs
+JOIN drivers as dr
+ON rs.driverId = dr.driverId
+JOIN races as rcs
+ON rs.raceId = rcs.raceId
+JOIN constructors as ct
+ON rs.constructorId = ct.constructorId
+JOIN circuits as cqt
+ON rcs.circuitId = cqt.circuitId
