@@ -14,3 +14,5 @@ JOIN constructors as ct
 ON rs.constructorId = ct.constructorId
 JOIN circuits as cqt
 ON rcs.circuitId = cqt.circuitId
+WHERE rcs.year = "2020"
+ORDER BY rs.driverId
